@@ -1,0 +1,22 @@
+[First Account]
+Name: Joanquin
+Surname: Valez
+Country: Ecuador
+Birthdate: 12/04/1996
+email: joaquinvalez@hotmail.com
+pass: Primerbot
+user: joaquinvalez3
+[Second Account]
+Name:
+Surname:
+Country:
+Birthdate: 12/04/1996
+email:
+pass:
+[Third Account]
+Name:
+Surname:
+Country:
+Birthdate: 12/04/1996
+email:
+pass:
