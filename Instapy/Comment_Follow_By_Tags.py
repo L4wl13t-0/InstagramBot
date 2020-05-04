@@ -3,8 +3,8 @@ from instapy import InstaPy
 from instapy import smart_run
 
 #Creamos las variables que guarda la cuenta
-insta_username = 'jokael_nimerrs'
-insta_password = 'houkai'
+insta_username = ''
+insta_password = ''
 
 #creamos la variable donde se almacena e inicia la cuenta
 session = InstaPy(username=insta_username,
@@ -21,10 +21,10 @@ with smart_run(session):
                                     min_followers=45,
                                     min_following=77)
 
-    session.set_dont_like(["droug", "dead", "Sexi"])
+    session.set_dont_like(["droug", "dead"])
 
     #Damoes los parametros de que puede seguir
-    session.follow_by_tags(["programming", "hacking", "technology"], amount=5)
+    session.follow_by_tags(["fit", "fitness", "cute", "chad", "gains", "4Chan", "GigaChad", "natty", "steroids"], amount=5)
 
     #Activamos la funcion de seguir en un porcentaje de 100%
     session.set_do_follow(enabled=True, percentage=100)
@@ -41,4 +41,4 @@ with smart_run(session):
     #Activamos la funcion de dar comentarios en un porcentaje de 100%
     session.set_do_comment(enabled=True, percentage=95)
     session.set_comments(photo_comments, media='Photo')
-    session.join_pods(topic='technology', engagement_mode='no_comments')
+    session.join_pods(topic='fitness', engagement_mode='no_comments')
