@@ -3,8 +3,8 @@ from instapy import InstaPy
 from instapy import smart_run
 
 #Creamos las variables que guarda la cuenta
-insta_username = 'jokael_nimerrs'
-insta_password = 'houkai'
+insta_username = ''
+insta_password = ''
 
 #creamos la variable donde se almacena e inicia la cuenta
 session = InstaPy(username=insta_username,
@@ -23,4 +23,4 @@ with smart_run(session):
 
     session.set_do_story(enabled=True, percentage=95, simulate=True)
 
-    session.story_by_users(['platzi', 'isabelifontana'])
+    session.story_by_users(['monicaagranda', 'diannalovesweights'])
