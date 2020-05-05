@@ -1,4 +1,4 @@
-> **Please Note**: The scripts for Linux and RaspberryPi still have to be added!
+> **Please Note**: The scripts for Linux and RaspberryPistill have to be added!
 
 ### Starting InstaPy
 

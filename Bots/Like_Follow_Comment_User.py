@@ -1,20 +1,20 @@
-#Importamos las librerias necesarias
+# Importamos las librerias necesarias
 from instapy import InstaPy
 from instapy import smart_run
 
-#Creamos las variables que guarda la cuenta
-insta_username = 'jokael_nimerrs'
-insta_password = 'houkai'
+# Creamos las variables que guarda la cuenta
+insta_username = 'darwinjosejosepedro'
+insta_password = 'Clave321**'
 
-#creamos la variable donde se almacena e inicia la cuenta
+# creamos la variable donde se almacena e inicia la cuenta
 session = InstaPy(username=insta_username,
                   password=insta_password,
                   headless_browser=False)
 
-#Definicmos la funcion que inicia la cuenta
+# Definicmos la funcion que inicia la cuenta
 with smart_run(session):
 
-    #Damos los parametros de la cuenta
+    # Damos los parametros de la cuenta
     session.set_relationship_bounds(enabled=True,
                                     delimit_by_numbers=True,
                                     max_followers=4000,
@@ -23,10 +23,10 @@ with smart_run(session):
 
     session.set_dont_like(["droug", "dead", "Sexi"])
 
-    #Activamos la funcion de seguir en un porcentaje de 90%
+    # Activamos la funcion de seguir en un porcentaje de 90%
     session.set_do_follow(enabled=True, percentage=90)
 
-    #Damos los parametros de que puede comentar
+    # Damos los parametros de que puede comentar
     session.set_comments(['Nice bro!',
                           'Very nice!',
                           'Good',
@@ -34,12 +34,16 @@ with smart_run(session):
                           'Very interesting',
                           'Nice',
                           'Interesting',
+                          'Excelente',
                           'Nice job'], media='Photo')
 
-    #Activamos la funcion de dar comentarios en un porcentaje de 90%
+    # Activamos la funcion de dar comentarios en un porcentaje de 90%
     session.set_do_comment(enabled=True, percentage=90)
 
-    #Activamos la funcion de dar like en un porcentaje de 90%
+    # Activamos la funcion de dar like en un porcentaje de 90%
     session.set_do_like(enabled=True, percentage=90)
 
-    session.interact_by_users(['3dward_Lugo', 'livingonline4'], amount=5, randomize=True, media='Photo')
+    session.interact_by_users(
+        ['cristiano', 'jumpman23', ], amount=5, randomize=True, media='Photo')
+
+# , 'python.hub', 'darwin.uzcategui1973'

@@ -3,8 +3,8 @@ from instapy import InstaPy
 from instapy import smart_run
 
 #Creamos las variables que guarda la cuenta
-insta_username = 'jokael_nimerrs'
-insta_password = 'houkai'
+insta_username = 'darwinjosejosepedro'
+insta_password = 'Clave321**'
 
 #creamos la variable donde se almacena e inicia la cuenta
 session = InstaPy(username=insta_username,
@@ -23,7 +23,7 @@ with smart_run(session):
 
     session.set_dont_like(["droug", "dead", "Sexi"])
 
-    session.follow_user_followers('3dward_Lugo', amount=5, randomize=False)
+    session.follow_user_followers('cristiano', amount=5, randomize=False)
 
     #Activamos la funcion de seguir en un porcentaje de 90%
     session.set_do_follow(enabled=True, percentage=90)
