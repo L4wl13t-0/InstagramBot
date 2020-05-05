@@ -5,6 +5,8 @@ from instapy import smart_run
 # Creamos las variables que guarda la cuenta
 insta_username = 'darwinjosejosepedro'
 insta_password = 'Clave321**'
+# insta_username = 'jokael_nimerrs'
+# insta_password = 'houkai'
 
 # creamos la variable donde se almacena e inicia la cuenta
 session = InstaPy(username=insta_username,

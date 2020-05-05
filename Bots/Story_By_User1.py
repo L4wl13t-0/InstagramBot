@@ -14,13 +14,13 @@ db = client.botsinstaPydb
 usuarios = db.users
 
 
-def get_story_by_users():
-    datos = []
-    users = usuarios.find()
-    for dat in users:
-        datos.append({dat["story_by_users"]})
-    # print(datos)
-    return list(datos)
+# def get_story_by_users():
+#    datos = []
+#    story_users = storyUsuarios.find()
+#    for dat in story_users:
+#        datos.append({dat["story_by_users"]})
+#    # print(datos)
+#    return list(datos)
 
 
 def get_users():
@@ -35,27 +35,22 @@ def get_users():
     return datos
 
 
-# Creamos las variables que guarda la cuenta
-story_by_users = str(get_story_by_users())
-story_by_users = story_by_users.replace("{", "")
-story_by_users = story_by_users.replace("}", "")
-story_by_users = story_by_users.replace("[", "")
-story_by_users = story_by_users.replace("]", "")
-story_by_users = story_by_users.replace("'", "")
+# Creamos las variables que guarda la cuenta este lo vamos a tomar desde otra tabla o coleccion
+# story_by_users = str(get_story_by_users())
+# story_by_users = story_by_users.replace("{", "")
+# story_by_users = story_by_users.replace("}", "")
+# story_by_users = story_by_users.replace("[", "")
+#  story_by_users = story_by_users.replace("]", "")
+# story_by_users = story_by_users.replace("'", "")
 
-print("probando que visualizar los datos de la base datos")
-print(story_by_users)
-
-
-# insta_username = 'jokael_nimerrs'
-# insta_password = 'houkai'
-
-
-usuarios = get_users()
+usuarios = get_users()  # realizamos la lista de usuarios
+# hacemos el ciclo para colocar todos los 1000 o X usuarios
 for unUser in usuarios:
 
     insta_username = unUser['insta_username']  # 'darwinjosejosepedro'
     insta_password = unUser['insta_password']  # 'Clave321**'
+    # insta_username = 'jokael_nimerrs'
+    # insta_password = 'houkai'
 
     # creamos la variable donde se almacena e inicia la cuenta
     session = InstaPy(username=insta_username,
@@ -69,8 +64,8 @@ for unUser in usuarios:
         session.set_relationship_bounds(enabled=True,
                                         delimit_by_numbers=True,
                                         max_followers=4000,
-                                        min_followers=2,
-                                        min_following=2)
+                                        min_followers=0,
+                                        min_following=0)
 
         session.set_do_story(enabled=True, percentage=95, simulate=True)
 

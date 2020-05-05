@@ -29,19 +29,18 @@ def rutaPrueba():
 def create_user():
     # Receiving Data
     username = request.json['username']
-    story_by_users = request.json['story_by_users']
     password = request.json['password']
 
-    if username and story_by_users and password:
-        hashed_password = generate_password_hash(password)
+    if username and  password:
+        # hashed_password = generate_password_hash(password)
 
         id = mongo.db.users.insert(
-            {'username': username, 'story_by_users': story_by_users, 'password': hashed_password})
+            # {'username': username, 'password': hashed_password}
+            {'username': username, 'password': password})
         response = jsonify({
             '_id': str(id),
             'username': username,
-            'password': password,
-            'story_by_users': story_by_users
+            'password': password
         })
         response.status_code = 201
         return response
@@ -57,7 +56,8 @@ def get_users():
     # response = json_util.dumps(users)
     for dat in users:
         datos.append({
-            "story_by_users": dat["story_by_users"]
+            "insta_username": dat["username"],
+            "insta_password": dat["password"]
         })
     print(datos)
 
@@ -72,7 +72,7 @@ def get_user(id):
 
     user = mongo.db.story_by_users.find_one({'_id': ObjectId(id), })
     response = json_util.dumps(user)
-    clave = response("story_by_users")
+    clave = response("password")
     print(clave)
     return Response(response, mimetype="application/json")
 
@@ -88,12 +88,11 @@ def delete_user(id):
 @app.route('/users/<_id>', methods=['PUT'])
 def update_user(_id):
     username = request.json['username']
-    story_by_users = request.json['story_by_users']
     password = request.json['password']
-    if username and story_by_users and password and _id:
-        hashed_password = generate_password_hash(password)
+    if username and  password and _id:
+        # hashed_password = generate_password_hash(password)
         mongo.db.users.update_one(
-            {'_id': ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id)}, {'$set': {'username': username, 'story_by_users': story_by_users, 'password': hashed_password}})
+            {'_id': ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id)}, {'$set': {'username': username, 'password': password}})
         response = jsonify({'message': 'User' + _id + 'Updated Successfuly'})
         response.status_code = 200
         return response
