@@ -31,7 +31,7 @@ def create_user():
     username = request.json['username']
     password = request.json['password']
 
-    if username and  password:
+    if username and password:
         # hashed_password = generate_password_hash(password)
 
         id = mongo.db.users.insert(
@@ -89,12 +89,31 @@ def delete_user(id):
 def update_user(_id):
     username = request.json['username']
     password = request.json['password']
-    if username and  password and _id:
+    if username and password and _id:
         # hashed_password = generate_password_hash(password)
         mongo.db.users.update_one(
             {'_id': ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id)}, {'$set': {'username': username, 'password': password}})
         response = jsonify({'message': 'User' + _id + 'Updated Successfuly'})
         response.status_code = 200
+        return response
+    else:
+        return not_found()
+
+# CREAACION DE TAG
+@app.route('/tags', methods=['POST'])
+def create_tag():
+    # Receiving Data
+    tag = request.json['tag']
+
+    if tag:
+
+        id = mongo.db.tags. insert(
+            {'tag': tag})
+        response = jsonify({
+            '_id': str(ObjectId(id)),
+            'tag': tag
+        })
+        response.status_code = 201
         return response
     else:
         return not_found()
