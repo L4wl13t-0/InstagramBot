@@ -63,18 +63,14 @@ def get_users():
 
     return jsonify(datos)
 
-    # return Response(response, mimetype="application/json")
 
-
-@app.route('/users/<id>', methods=['GET'])
-def get_user(id):
-    print(id)
-
-    user = mongo.db.story_by_users.find_one({'_id': ObjectId(id), })
-    response = json_util.dumps(user)
-    clave = response("password")
-    print(clave)
-    return Response(response, mimetype="application/json")
+@app.route("/users/<username>")
+def get_user(username):
+    mongo.db.users.find_one({'username': username, })
+    response = jsonify(
+        {'mensaje': 'Usario nombre : ' + username + ' usuarios encontrado'})
+    response.status_code = 200
+    return response
 
 
 @app.route('/users/<id>', methods=['DELETE'])
@@ -99,7 +95,9 @@ def update_user(_id):
     else:
         return not_found()
 
-# CREAACION DE TAG
+# ruta de para INCLUIR TAG
+# el endpoint es por metodo POST
+# http://localhost:5000/tags
 @app.route('/tags', methods=['POST'])
 def create_tag():
     # Receiving Data
@@ -114,6 +112,66 @@ def create_tag():
             'tag': tag
         })
         response.status_code = 201
+        return response
+    else:
+        return not_found()
+
+# ruta de para LISTA LOS TAG
+# el endpoint es por metodo GET
+# http://localhost:5000/tags
+# tags = mongo.db.tags.find()
+# ejemplicacion de este codigo
+# tags es ojetos que se genera
+# de objeto mongo.db que la conecion a la base datos
+# mongo.db.tags donde tags es el nombre de la tabla o coleccion
+# por ultimo mongo.db.tags.find() y find un metodo para buscar todos los tags de la base datos
+@app.route('/tags', methods=['GET'])
+def get_tags():
+    datos = []
+    tags = mongo.db.tags.find()
+    for unTag in tags:
+        datos.append({
+            "id":  str(ObjectId(unTag["_id"])),
+            "tag": unTag["tag"]
+        })
+    return jsonify(datos)
+
+# ruta de para buscar un solo TAG
+# el endpoint es por metodo GET
+# http://localhost:5000/tag/<Parametro de id>
+@app.route('/tag/<id>', methods=['GET'])
+def get_tag(id):
+    tag = mongo.db.tags.find_one({'_id': ObjectId(id), })
+    response = json_util.dumps(tag)
+    clave = response("tag")
+    print(clave)
+    return Response(response, mimetype="application/json")
+
+
+# ruta de para eliminar un solo TAG
+# el endpoint es por metodo DELETE
+# http://localhost:5000/tag/<Parametro de id>
+@app.route('/tag/<id>', methods=['DELETE'])
+def delete_tag(id):
+    mongo.db.tags.delete_one({'_id': ObjectId(id)})
+    response = jsonify({'message': 'Tag-> ' + id + ' Deleted Successfully'})
+    response.status_code = 200
+    return response
+
+
+# ruta de para actulizar un solo TAG
+# el endpoint es por metodo PUT
+# http://localhost:5000/tag/<Parametro de id>
+@app.route('/tag/<_id>', methods=['PUT'])
+def update_tag(_id):
+    tag = request.json['tag']
+
+    if tag and _id:
+        # hashed_password = generate_password_hash(password)
+        mongo.db.tags.update_one(
+            {'_id': ObjectId(_id['$oid']) if '$oid' in _id else ObjectId(_id)}, {'$set': {'tag': tag}})
+        response = jsonify({'message': 'Tag' + _id + 'Updated Successfuly'})
+        response.status_code = 200
         return response
     else:
         return not_found()
