@@ -11,7 +11,7 @@ client = MongoClient()
 db = client.botsinstaPydb
 
 # coleccion o tablas de la base datos
-usuarios = db.users
+usuariosDb = db.users
 
 
 # def get_story_by_users():
@@ -25,7 +25,7 @@ usuarios = db.users
 
 def get_users():
     datos = []
-    users = usuarios.find()
+    users = usuariosDb.find()
     for dat in users:
         datos.append({
             "insta_username": dat["username"],
