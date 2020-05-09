@@ -2,12 +2,15 @@
 
 1. Hay que instalar inicialmente la base de datos mongodb (https://www.mongodb.com/download-center/community)
 
-1. sieguiente paso instalar las dependencia para trabajar en el EN SCRIPS DE BACKEND app.py.
+1. El siguiente paso es instalar las dependencia para trabajar en el EN SCRIPS DE BACKEND app.py.
+
+```
    pip install Flask
    pip install flask-Pymongo
    pip install Flask-Cors
+```
 
-1. herraminetas a intalar para realizar Test.:
+1. Herramientas a intalar para realizar los Test.:
 
    #### Postman (https://www.postman.com/) se utilizar como un cliente apara leer api Restfull
 
@@ -32,61 +35,97 @@
    Restarting with stat
    Debugger is active!
    Debugger PIN: 203-558-319
-   Running on http://127.0.0.1:5000/ (Press CTRL+C to quit) (Press CTRL+C to quit)_
+   Running on `http://127.0.0.1:5000/` (Press CTRL+C to quit) (Press CTRL+C to quit)_
 
-1. Ahora te coloca en la ruta http://127.0.0.1:5000/ si ejecuta esta ruta raiz tu servidor de base datos ya esta corriendo y en el navegador sale:
+1. Ahora te coloca en la ruta `http://127.0.0.1:5000/` si ejecuta esta ruta raiz tu servidor de base datos ya esta corriendo y en el navegador sale:
 
-   ## Hola Base datos
+   ### Hola Base datos
 
-1. Por Ultimo ahora debera cargas los datos de los scrip en la base datos.
+---
+
+### 1. Por Ultimo ahora debera cargas los datos de los scrips en la base datos.
+
+---
+
 1. Ejecute postman y la opcion de untited request coloque por metodo get esta ruta para ver la lista de los usuarios GET
+
+```
    http://localhost:5000/users
-   te saldra la lista de usuarios ,
-   pero como es la primera vez te va salir una lista vacia
-   para cargar los usuarios coloca por el metodo POST ESTA RUTA
-   http://localhost:5000/users
-   alli debera hacer dos configuraciones basicas de cualquier formulario de servidoes.
-   la primera en la opcion de headers en campo key colocar Content-Type y value application/json.
-   ya con esto tiene configurado la cabecera de tu frontend.
-   para terminar en la opcion body en raw JSON , carga un json
-   valido para grabar los datos en la base de datos ejemplo
-   {
-   "username": "miUsuario",
-   "password": "Clave321"
-   }
-   y pulsa en en boton de send o enviar si todo esta bien
-   te va salir este resultado o parecido
-   {
-   "\_id": "5eb70164f96a2741ed886ca9",
-   "password": "Clave3ss21\*\*",
-   "username": "darwinsssjosejosepedro"
-   }
-   esto quiere decir que ya grabo el primer usuario en la lista.
-   tambien puede ver la coleccion de datos en mongo3t
+```
+
+te saldra la lista de usuarios ,
+pero como es la primera vez te va salir una lista vacia
+para cargar los usuarios coloca por el metodo POST ESTA RUTA
+
+```
+http://localhost:5000/users
+```
+
+alli debera hacer dos configuraciones basicas de cualquier formulario de servidoes.
+la primera en la opcion de headers en campo key colocar Content-Type y value application/json.
+ya con esto tiene configurado la cabecera de tu frontend.
+para terminar en la opcion body en raw JSON , carga un json
+valido para grabar los datos en la base de datos ejemplo
+
+```
+{
+"username": "miUsuario",
+"password": "Clave321"
+}
+```
+
+y pulsa en en boton de send o enviar si todo esta bien
+te va salir este resultado o parecido
+
+```
+{
+"_id": "5eb70164f96a2741ed886ca9",
+"password": "Clave31*",
+"username": "darwinsssjosejosepedro"
+}
+```
+
+esto quiere decir que ya grabo el primer usuario en la lista.
+tambien puede ver la coleccion de datos en mongo3t
 
 la otra ruta para cargar los tag
 por el metodo POST
 
+```
 http://localhost:5000/tags
+```
+
 en la opcion body en raw JSON , carga un json
 valido para grabar los datos en la base de datos ejemplo
 
+```
 {
 "tag": "pelicula"
 }
+
+```
 
 el resultrado al pulsar send
 es parecido a esto
+
+```
 {
-"\_id": "5eb70208f96a2741ed886caa",
+"_id": "5eb70208f96a2741ed886caa",
 "tag": "pelicula"
 }
+```
 
 ya para ver si cargaste todos los tags
 la ruta es por metodo GET
+
+```
 http://localhost:5000/tags
+```
+
 Se visualiza todos los tags cargado en la base de datos
-como este ejm.
+ejm.
+
+```
 [
 {
 "id": "5eb3fe24e5e63ae8d032e671",
@@ -129,5 +168,8 @@ como este ejm.
 "tag": "pelicula"
 }
 ]
+```
+
+---
 
 ##### finn......
