@@ -1,6 +1,7 @@
 # Importamos las librerias necesarias
 from instapy import InstaPy
 from instapy import smart_run
+from instapy_cli import client
 
 from pymongo import MongoClient
 
@@ -47,6 +48,10 @@ usuarios = get_users()  # realizamos la lista de usuarios
 # hacemos el ciclo para colocar todos los 1000 o X usuarios
 for unUser in usuarios:
 
+    # aqui el codigo para subir imagen
+    insta_img = 'img.jpg'
+    insta_txt = 'esta mi mi imagen'
+
     insta_username = unUser['insta_username']  # 'darwinjosejosepedro'
     insta_password = unUser['insta_password']  # 'Clave321**'
     # insta_username = 'jokael_nimerrs'
@@ -59,6 +64,7 @@ for unUser in usuarios:
 
     # Definicmos la funcion que inicia la cuenta
     with smart_run(session):
+        #client.upload(insta_img, insta_txt)
 
         # Damos los parametros de la cuenta
         session.set_relationship_bounds(enabled=True,
