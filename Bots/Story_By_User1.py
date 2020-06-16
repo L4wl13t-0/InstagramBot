@@ -14,16 +14,6 @@ db = client.botsinstaPydb
 # coleccion o tablas de la base datos
 usuariosDb = db.users
 
-
-# def get_story_by_users():
-#    datos = []
-#    story_users = storyUsuarios.find()
-#    for dat in story_users:
-#        datos.append({dat["story_by_users"]})
-#    # print(datos)
-#    return list(datos)
-
-
 def get_users():
     datos = []
     users = usuariosDb.find()
