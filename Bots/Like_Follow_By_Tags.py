@@ -3,8 +3,8 @@ from instapy import InstaPy
 from instapy import smart_run
 
 # Creamos las variables que guarda la cuenta
-insta_username = 'darwinjosejosepedro'
-insta_password = 'Clave321**'
+insta_username = ''
+insta_password = '**'
 # insta_username = 'jokael_nimerrs'
 # insta_password = 'houkai'
 
