@@ -50,8 +50,8 @@ tagsLista = get_tags
 # hacemos el ciclo para colocar todos los 1000 o X usuarios
 for unUser in usuariosLista:
 
-    insta_username = unUser['insta_username']  # 'darwinjosejosepedro'
-    insta_password = unUser['insta_password']  # 'Clave321**'
+    insta_username = unUser['insta_username']  # ''
+    insta_password = unUser['insta_password']  # '**'
     # insta_username = 'jokael_nimerrs'
     # insta_password = 'houkai'
 
