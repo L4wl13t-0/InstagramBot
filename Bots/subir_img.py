@@ -33,8 +33,8 @@ for unUser in usuarios:
 
     # aqui el codigo para subir imagen
 
-    insta_username = unUser['insta_username']  # 'darwinjosejosepedro'
-    insta_password = unUser['insta_password']  # 'Clave321**'
+    insta_username = unUser['insta_username']  # ''
+    insta_password = unUser['insta_password']  # '**'
     # insta_username = 'jokael_nimerrs'
     # insta_password = 'houkai'
 
