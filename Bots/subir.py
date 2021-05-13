@@ -5,8 +5,8 @@ from instapy_cli import client
 
 # aqui el codigo para subir imagen
 
-insta_username ='darwinjosejosepedro'
-insta_password = 'Clave321**'
+insta_username =''
+insta_password = '**'
 cookie_file = 'COOKIE_FOR_USER.json'
 # insta_username = 'jokael_nimerrs'
 # insta_password = 'houkai'
